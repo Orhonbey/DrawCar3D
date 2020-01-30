@@ -46,7 +46,9 @@ public class DrawPanel : MonoBehaviour
     public void CreateLine()
     {
         fingerPositions.Clear();
-        fingerPositions.Add(touch.startPosition);
+        Vector2 firstPos = lineRenderer.transform.InverseTransformPoint(touch.startPosition);
+        fingerPositions.Add(firstPos);
+        //lineRenderer.transform.position = touch.startPosition;
         lineRenderer.Points = fingerPositions.ToArray();
     }
     public void UpdateLine()
@@ -54,8 +56,7 @@ public class DrawPanel : MonoBehaviour
         float dis = Vector2.Distance(fingerPositions[fingerPositions.Count - 1], touch.currentPosition);
         if (dis > 2)
         {
-            //fingerPosition.Clear();
-            Vector2 fingerPos = touch.currentPosition;
+            Vector2 fingerPos = lineRenderer.transform.InverseTransformPoint(touch.currentPosition);
             fingerPositions.Add(fingerPos);
             lineRenderer.Points = fingerPositions.ToArray();
         }
