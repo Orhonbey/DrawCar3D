@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI.Extensions;
+using SplineMesh;
 
 public class DrawPanel : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DrawPanel : MonoBehaviour
     [HideInInspector]
     public List<Vector2> fingerPositions = new List<Vector2>();
     RaksTimer timer = new RaksTimer();
+    public Spline spline;
     #endregion
     #region //----> Unity Method
     // Start is called before the first frame update
@@ -36,6 +38,10 @@ public class DrawPanel : MonoBehaviour
                 UpdateLine();
             }
         }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            CreateDrawCar(fingerPositions);
+        }
     }
     #endregion
     #region //----> My Method
@@ -60,6 +66,22 @@ public class DrawPanel : MonoBehaviour
             fingerPositions.Add(fingerPos);
             lineRenderer.Points = fingerPositions.ToArray();
         }
+    }
+
+    public void CreateDrawCar(List<Vector2> points)
+    {
+        for (int i = 0; i < points.Count; i++)
+        {
+            //if ()
+            //{
+
+            //}
+            Vector2 direction = points[i];
+            SplineNode node = new SplineNode(points[i], direction);
+            spline.AddNode(node);
+        }
+        spline.transform.localScale = new Vector3(.05f, .05f, .05f);
+        
     }
 
     #endregion
