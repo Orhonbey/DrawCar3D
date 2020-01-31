@@ -81,22 +81,26 @@ public class DrawPanel : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
             pathPoints.Add(new pb_BezierPoint(points[i], points[i], points[i], Quaternion.identity));
-            var sC = pathObjectContainer.AddComponent<SphereCollider>();
-            //sC.radius = 10;
-            //sC.center = points[i];
+         
         }
         pathObject.m_Points = pathPoints;
         pathObject.m_Radius = 10;
         pathObject.Refresh();
-        //pathObjectContainer.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+        pathObjectContainer.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
         pathObjectContainer.transform.position = startPos.position;
         pathO.ToMesh();
         //pathO.
         Mesh m = pathObjectContainer.GetComponent<MeshFilter>().sharedMesh;
         MeshRenderer mR = pathObjectContainer.GetComponent<MeshRenderer>();
         mR.sharedMaterial = drawCarMaterial;
-        //pathObjectContainer.AddComponent<MeshCollider>().sharedMesh = m;
         pathObjectContainer.AddComponent<Rigidbody>();
+        for (int i = 0; i < points.Count; i++)
+        {
+            var sC = pathObjectContainer.AddComponent<SphereCollider>();
+            sC.radius = 10;
+            sC.center = points[i];
+        }
+        //pathObjectContainer.AddComponent<MeshCollider>().sharedMesh = m;
     }
 
     #endregion
