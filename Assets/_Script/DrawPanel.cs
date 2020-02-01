@@ -15,6 +15,7 @@ public class DrawPanel : MonoBehaviour
     RaksTimer timer = new RaksTimer();
     public Transform startPos;
     public Material drawCarMaterial;
+    public CarMachine carMachine;
     #endregion
     #region //----> Unity Method
     // Start is called before the first frame update
@@ -61,9 +62,8 @@ public class DrawPanel : MonoBehaviour
     }
     public void UpdateLine()
     {
-        float dis =  touch.deltaPosition.magnitude;
-        Debug.Log("Deneme : "+ dis);
-        if (dis > Screen.width*.01f)
+        float dis = touch.deltaPosition.magnitude;
+        if (dis > Screen.width * .01f)
         {
             Vector2 fingerPos = lineRenderer.transform.InverseTransformPoint(touch.currentPosition);
             fingerPositions.Add(fingerPos);
@@ -81,10 +81,9 @@ public class DrawPanel : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
             pathPoints.Add(new pb_BezierPoint(points[i], points[i], points[i], Quaternion.identity));
-         
         }
         pathObject.m_Points = pathPoints;
-        pathObject.m_Radius = 10;
+        pathObject.m_Radius = 25;
         pathObject.Refresh();
         pathObjectContainer.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
         pathObjectContainer.transform.position = startPos.position;
@@ -93,15 +92,30 @@ public class DrawPanel : MonoBehaviour
         Mesh m = pathObjectContainer.GetComponent<MeshFilter>().sharedMesh;
         MeshRenderer mR = pathObjectContainer.GetComponent<MeshRenderer>();
         mR.sharedMaterial = drawCarMaterial;
-        pathObjectContainer.AddComponent<Rigidbody>();
+        //pathObjectContainer.AddComponent<Rigidbody>();
         for (int i = 0; i < points.Count; i++)
         {
             var sC = pathObjectContainer.AddComponent<SphereCollider>();
-            sC.radius = 10;
+            sC.radius = 25;
             sC.center = points[i];
         }
+        pathObjectContainer.transform.parent = startPos;
         //pathObjectContainer.AddComponent<MeshCollider>().sharedMesh = m;
+        WheelPlacement(pathObjectContainer.transform);
     }
 
+    public void WheelPlacement(Transform parent)
+    {
+        Debug.Log("Test");
+        //Time.timeScale = 0;
+        carMachine.backWheels.parent = parent;
+        carMachine.frontWheels.parent = parent;
+        carMachine.frontWheels.position = touch.endPosition;
+        carMachine.backWheels.position = fingerPositions[0];
+        carMachine.backWheels.gameObject.SetActive(true);
+        carMachine.frontWheels.gameObject.SetActive(true);
+        //parent.gameObject.AddComponent<Rigidbody>();
+
+    }
     #endregion
 }
