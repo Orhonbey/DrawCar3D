@@ -75,6 +75,8 @@ public class RUIMaster : MonoBehaviour
     {
         onBegin.Invoke();
         myCanvasGroup.interactable = true;
+        myCanvasGroup.blocksRaycasts = true;
+
     }
     /// <summary>
     /// Close Kapatma İşlemi
@@ -109,14 +111,11 @@ public class RUIMaster : MonoBehaviour
         {
             case AnimationType.alpha:
                 myCanvasGroup.alpha = 0;
-                myCanvasGroup.interactable = false;
                 break;
             case AnimationType.horizontal:
-                myCanvasGroup.interactable = false;
                 LeanTween.moveLocalY(gameObject, RCanvas.canvasSize.y, 0);
                 break;
             case AnimationType.vertical:
-                myCanvasGroup.interactable = false;
                 LeanTween.moveLocalX(gameObject, RCanvas.canvasSize.x, 0);
                 break;
             case AnimationType.popup:
@@ -124,10 +123,12 @@ public class RUIMaster : MonoBehaviour
                 break;
             default:
                 myCanvasGroup.alpha = 0;
-                myCanvasGroup.interactable = false;
                 LeanTween.scale(gameObject, Vector3.zero, 0);
                 break;
         }
+        myCanvasGroup.interactable = false;
+        myCanvasGroup.blocksRaycasts = false;
+
     }
     /// <summary>
     /// close Kapandığında Tetiklenecke olan Fonsiyon
@@ -137,6 +138,7 @@ public class RUIMaster : MonoBehaviour
         onEnd.Invoke();
         myCanvasGroup.interactable = false;
         myCanvasGroup.alpha = 0;
+        myCanvasGroup.blocksRaycasts = false;
     }
     #endregion
 }

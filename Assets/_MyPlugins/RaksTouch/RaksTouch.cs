@@ -46,6 +46,6 @@ public class RaksTouch : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Test");
+        //Debug.Log("Test");
     }
 }

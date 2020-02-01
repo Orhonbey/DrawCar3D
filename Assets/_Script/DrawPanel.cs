@@ -13,37 +13,39 @@ public class DrawPanel : MonoBehaviour
     [HideInInspector]
     public List<Vector2> fingerPositions = new List<Vector2>();
     RaksTimer timer = new RaksTimer();
-    public Transform startPos;
+    public Transform mainCarT;
     public Material drawCarMaterial;
     public CarMachine carMachine;
+    private GameObject drawC;
+    pb_BezierShape pathObject;
     #endregion
     #region //----> Unity Method
-    // Start is called before the first frame update
-    void Start()
-    {
-        //pathCreator.pat
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (GameManager.ins.currentGameMode == GameMode.play)
         {
-            if (touch.isEvent)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                CreateLine();
+                if (touch.isEvent)
+                {
+                    CreateLine();
+                }
             }
-        }
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            if (touch.isEvent)
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                UpdateLine();
+                if (touch.isEvent)
+                {
+                    UpdateLine();
+                }
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            CreateDrawCar(fingerPositions);
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                if (fingerPositions.Count > 5)
+                {
+                    CreateDrawCar(fingerPositions);
+                }
+            }
         }
     }
     #endregion
@@ -54,6 +56,9 @@ public class DrawPanel : MonoBehaviour
     /// 
     public void CreateLine()
     {
+        Time.timeScale = 0f;
+        carMachine.isStart = false;
+        carMachine.rb.useGravity = false;
         fingerPositions.Clear();
         Vector2 firstPos = lineRenderer.transform.InverseTransformPoint(touch.startPosition);
         fingerPositions.Add(firstPos);
@@ -62,21 +67,22 @@ public class DrawPanel : MonoBehaviour
     }
     public void UpdateLine()
     {
-        float dis = touch.deltaPosition.magnitude;
-        if (dis > Screen.width * .01f)
+        Vector2 touchCurrentPos = lineRenderer.transform.InverseTransformPoint(touch.currentPosition);
+        float dis = Vector3.Distance(fingerPositions[fingerPositions.Count-1], touchCurrentPos);
+        if (dis > 75)
         {
-            Vector2 fingerPos = lineRenderer.transform.InverseTransformPoint(touch.currentPosition);
+            Vector2 fingerPos = touchCurrentPos;
             fingerPositions.Add(fingerPos);
             lineRenderer.Points = fingerPositions.ToArray();
         }
     }
     public void CreateDrawCar(List<Vector2> points)
     {
+        mainCarT.eulerAngles = new Vector3(0, 90, 0);
         GameObject pathObjectContainer = new GameObject();
         var pathO = pathObjectContainer.AddComponent<pb_Object>();
         var pbEntity = pathObjectContainer.GetComponent<pb_Entity>();
-        //pathObjectContainer.AddComponent<pb_Entity>();
-        var pathObject = pathObjectContainer.AddComponent<pb_BezierShape>();
+        pathObject = pathObjectContainer.AddComponent<pb_BezierShape>();
         List<pb_BezierPoint> pathPoints = new List<pb_BezierPoint>();
         for (int i = 0; i < points.Count; i++)
         {
@@ -86,36 +92,51 @@ public class DrawPanel : MonoBehaviour
         pathObject.m_Radius = 25;
         pathObject.Refresh();
         pathObjectContainer.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
-        pathObjectContainer.transform.position = startPos.position;
         pathO.ToMesh();
-        //pathO.
         Mesh m = pathObjectContainer.GetComponent<MeshFilter>().sharedMesh;
         MeshRenderer mR = pathObjectContainer.GetComponent<MeshRenderer>();
         mR.sharedMaterial = drawCarMaterial;
-        //pathObjectContainer.AddComponent<Rigidbody>();
+        if (drawC != null)
+        {
+            Destroy(drawC);
+        }
         for (int i = 0; i < points.Count; i++)
         {
             var sC = pathObjectContainer.AddComponent<SphereCollider>();
             sC.radius = 25;
             sC.center = points[i];
         }
-        pathObjectContainer.transform.parent = startPos;
-        //pathObjectContainer.AddComponent<MeshCollider>().sharedMesh = m;
+        pathObjectContainer.transform.parent = mainCarT;
+        pathObjectContainer.transform.position = mainCarT.position;
         WheelPlacement(pathObjectContainer.transform);
+        drawC = pathObjectContainer;
+        CarReset();
     }
 
     public void WheelPlacement(Transform parent)
     {
-        Debug.Log("Test");
-        //Time.timeScale = 0;
-        carMachine.backWheels.parent = parent;
-        carMachine.frontWheels.parent = parent;
-        carMachine.frontWheels.position = touch.endPosition;
-        carMachine.backWheels.position = fingerPositions[0];
-        carMachine.backWheels.gameObject.SetActive(true);
-        carMachine.frontWheels.gameObject.SetActive(true);
-        //parent.gameObject.AddComponent<Rigidbody>();
+        Vector3 frontPos = pathObject.m_Points[pathObject.m_Points.Count - 1].position * parent.localScale.x;
+        frontPos.z = frontPos.x;
+        frontPos.x = 0;
+        Vector3 backPos = pathObject.m_Points[0].position * 0.005f;
+        backPos.z = backPos.x;
+        backPos.x = 0;
+        carMachine.frontWheels.localPosition = frontPos;
+        carMachine.backWheels.localPosition = backPos;
 
+        Time.timeScale = 1f;
+    }
+
+    private void CarReset()
+    {
+        carMachine.isStart = true;
+        carMachine.rb.useGravity = true;
+        carMachine.rb.angularVelocity = Vector3.zero;
+        Vector3 newCarPos = GameManager.ins.currentLevel.road.transform.position;
+        newCarPos.y += 1;
+        newCarPos.x = mainCarT.position.x;
+        newCarPos.z = mainCarT.position.z;
+        mainCarT.position = newCarPos;
     }
     #endregion
 }

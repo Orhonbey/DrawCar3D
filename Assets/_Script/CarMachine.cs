@@ -28,7 +28,7 @@ public class CarMachine : MonoBehaviour
     }
     public void Update()
     {
-        if (isStart)
+        if (GameManager.ins.currentGameMode == GameMode.play)
         {
             foreach (var item in wheelColliders)
             {
@@ -41,6 +41,9 @@ public class CarMachine : MonoBehaviour
         }
     }
 
+
+    #endregion
+    #region //----> My Method
     private bool IsGround()
     {
         foreach (var item in wheelColliders)
@@ -51,6 +54,14 @@ public class CarMachine : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void Breka()
+    {
+        foreach (var item in wheelColliders)
+        {
+            item.brakeTorque = 10;
+        }
     }
     #endregion
 }
