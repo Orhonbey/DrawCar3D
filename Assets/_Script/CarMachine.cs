@@ -20,27 +20,35 @@ public class CarMachine : MonoBehaviour
     public Rigidbody rb;
     public float torquePower;
     public float power;
+    public float carMaxSpeed = 20;
     #endregion
     #region //----> Unity Method
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    public void Update()
+    public void FixedUpdate()
     {
         if (GameManager.ins.currentGameMode == GameMode.play)
         {
-            foreach (var item in wheelColliders)
+            if (rb.velocity.magnitude < carMaxSpeed)
             {
-                item.motorTorque = Time.deltaTime * torquePower;
+                foreach (var item in wheelColliders)
+                {
+                    item.motorTorque = Time.deltaTime * torquePower;
+                }
+                if (IsGround())
+                {
+                    rb.AddForce(Vector3.right * Time.deltaTime * power, ForceMode.Acceleration);
+                }
             }
-            if (IsGround())
+            Debug.Log("Hız : " + rb.velocity.magnitude + " : Dönüş Hızına bakılacak . " + rb.angularVelocity.magnitude);
+            if (rb.angularVelocity.magnitude > 5)
             {
-                rb.AddForce(Vector3.right * Time.deltaTime * power, ForceMode.Acceleration);
+                rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, Time.deltaTime * 10);
             }
         }
     }
-
 
     #endregion
     #region //----> My Method

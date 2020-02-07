@@ -23,6 +23,5 @@ public class WheelControl : MonoBehaviour
     {
         myWheelCollider.GetWorldPose(out wheelPos, out wheelRot);
         myWheel.transform.position = wheelPos;
-        //myWheel.transform.rotation = wheelRot;
     }
 }

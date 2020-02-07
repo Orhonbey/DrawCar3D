@@ -45,6 +45,10 @@ public class DrawPanel : MonoBehaviour
                 {
                     CreateDrawCar(fingerPositions);
                 }
+                else
+                {
+                    Time.timeScale = 1;
+                }
             }
         }
     }
@@ -68,7 +72,7 @@ public class DrawPanel : MonoBehaviour
     public void UpdateLine()
     {
         Vector2 touchCurrentPos = lineRenderer.transform.InverseTransformPoint(touch.currentPosition);
-        float dis = Vector3.Distance(fingerPositions[fingerPositions.Count-1], touchCurrentPos);
+        float dis = Vector3.Distance(fingerPositions[fingerPositions.Count - 1], touchCurrentPos);
         if (dis > 75)
         {
             Vector2 fingerPos = touchCurrentPos;
@@ -78,7 +82,6 @@ public class DrawPanel : MonoBehaviour
     }
     public void CreateDrawCar(List<Vector2> points)
     {
-        mainCarT.eulerAngles = new Vector3(0, 90, 0);
         GameObject pathObjectContainer = new GameObject();
         var pathO = pathObjectContainer.AddComponent<pb_Object>();
         var pbEntity = pathObjectContainer.GetComponent<pb_Entity>();
@@ -95,16 +98,13 @@ public class DrawPanel : MonoBehaviour
         pathO.ToMesh();
         Mesh m = pathObjectContainer.GetComponent<MeshFilter>().sharedMesh;
         MeshRenderer mR = pathObjectContainer.GetComponent<MeshRenderer>();
+        MeshCollider mC = pathObjectContainer.AddComponent<MeshCollider>();
+        mC.sharedMesh = m;
+        mC.convex = true;
         mR.sharedMaterial = drawCarMaterial;
         if (drawC != null)
         {
             Destroy(drawC);
-        }
-        for (int i = 0; i < points.Count; i++)
-        {
-            var sC = pathObjectContainer.AddComponent<SphereCollider>();
-            sC.radius = 25;
-            sC.center = points[i];
         }
         pathObjectContainer.transform.parent = mainCarT;
         pathObjectContainer.transform.position = mainCarT.position;
@@ -123,7 +123,6 @@ public class DrawPanel : MonoBehaviour
         backPos.x = 0;
         carMachine.frontWheels.localPosition = frontPos;
         carMachine.backWheels.localPosition = backPos;
-
         Time.timeScale = 1f;
     }
 
@@ -132,11 +131,21 @@ public class DrawPanel : MonoBehaviour
         carMachine.isStart = true;
         carMachine.rb.useGravity = true;
         carMachine.rb.angularVelocity = Vector3.zero;
+        //carMachine.rb.rotation = 
+        Vector3 carMainRot = carMachine.transform.localEulerAngles;
+        carMainRot.z = 0;
+        carMainRot.x = 0;
+        carMachine.transform.localEulerAngles = carMainRot;
         Vector3 newCarPos = GameManager.ins.currentLevel.road.transform.position;
         newCarPos.y += 1;
         newCarPos.x = mainCarT.position.x;
         newCarPos.z = mainCarT.position.z;
         mainCarT.position = newCarPos;
+        Vector3 carRot = drawC.transform.localEulerAngles;
+        carRot.z = 0;
+        carRot.y = -90;
+        carRot.x = 0;
+        drawC.transform.localEulerAngles = carRot;
     }
     #endregion
 }
