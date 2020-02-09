@@ -27,7 +27,6 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
     PathCreator.dll:
-    - PathCreation.GlobalDisplaySettings
     - PathCreation.PathCreator
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -80,71 +79,71 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9736}
+      Script: {instanceID: 9780}
     - Class: 114
-      Script: {instanceID: 10012}
+      Script: {instanceID: 9850}
     - Class: 114
-      Script: {instanceID: 10072}
+      Script: {instanceID: 9918}
     - Class: 114
-      Script: {instanceID: 10086}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10448}
+      Script: {instanceID: 10184}
     - Class: 114
-      Script: {instanceID: 10630}
+      Script: {instanceID: 10198}
     - Class: 114
-      Script: {instanceID: 10712}
+      Script: {instanceID: 10572}
     - Class: 114
-      Script: {instanceID: 10788}
+      Script: {instanceID: 10760}
     - Class: 114
-      Script: {instanceID: 10924}
+      Script: {instanceID: 10790}
     - Class: 114
-      Script: {instanceID: 11184}
+      Script: {instanceID: 10812}
     - Class: 114
-      Script: {instanceID: 11228}
+      Script: {instanceID: 10852}
     - Class: 114
-      Script: {instanceID: 11232}
+      Script: {instanceID: 10928}
     - Class: 114
-      Script: {instanceID: 11388}
+      Script: {instanceID: 11066}
     - Class: 114
-      Script: {instanceID: 11690}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11880}
+      Script: {instanceID: 11398}
     - Class: 114
-      Script: {instanceID: 11916}
+      Script: {instanceID: 11424}
     - Class: 114
-      Script: {instanceID: 11958}
+      Script: {instanceID: 11562}
     - Class: 114
-      Script: {instanceID: 11962}
+      Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 12194}
+      Script: {instanceID: 11910}
     - Class: 114
-      Script: {instanceID: 12404}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 12734}
+      Script: {instanceID: 12106}
     - Class: 114
-      Script: {instanceID: 12768}
+      Script: {instanceID: 12142}
     - Class: 114
-      Script: {instanceID: 22992}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 23044}
+      Script: {instanceID: 12188}
     - Class: 114
-      Script: {instanceID: 24968}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 25250}
+      Script: {instanceID: 12550}
     - Class: 114
-      Script: {instanceID: 25532}
+      Script: {instanceID: 12632}
     - Class: 114
-      Script: {instanceID: 30218}
+      Script: {instanceID: 12656}
     - Class: 114
-      Script: {instanceID: 33340}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 33688}
+      Script: {instanceID: 13000}
     - Class: 114
-      Script: {instanceID: 46632}
+      Script: {instanceID: 13036}
     - Class: 114
-      Script: {instanceID: 54504}
+      Script: {instanceID: 13038}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -230,6 +229,12 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: db522f4ef93a452f8d74c442a71d8d10
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WheelControl
+  - hash:
+      serializedVersion: 2
       Hash: 40aeefc42dfa427357f3518925654d60
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -258,6 +263,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityEngine.UI.Extensions.Examples
     className: UpdateRadialValue
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIStartPanel
   - hash:
       serializedVersion: 2
       Hash: 928ca8678155de4eb92215a4cdef11a1
@@ -348,6 +359,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: cbdaf6289eb255feedd0bee0a753faee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ExtrudeRandomEdges
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -516,6 +533,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: c9d7f0d81fdae2d877bb1152cc49f7a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: ProBuilder2.Examples
+    className: IcoBumpin
   - hash:
       serializedVersion: 2
       Hash: 09aa0411d0c35a16dcce53989653f6c5
@@ -740,10 +763,22 @@ ScriptsOnlyBuild:
     className: RUIPopup
   - hash:
       serializedVersion: 2
+      Hash: 8f5f57a80ff89b29b00f5117b0fa3a6c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIManager
+  - hash:
+      serializedVersion: 2
       Hash: 64539b9106486719878df4581e1ae0ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GeneralAdvancedTechniques
+  - hash:
+      serializedVersion: 2
+      Hash: ddb27d58438a985587e79d7a6145ab87
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UILevelPanel
   - hash:
       serializedVersion: 2
       Hash: d3052383e8fd0011ccc6a276e304de90
@@ -932,6 +967,12 @@ ScriptsOnlyBuild:
     className: RescaleDragPanel
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: ProBuilder2.Examples
+    className: HueCube
+  - hash:
+      serializedVersion: 2
       Hash: 80216f2ce5549c4922a10ffe58c5af28
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityEngine.UI.Extensions
@@ -1088,6 +1129,12 @@ ScriptsOnlyBuild:
     className: RUIWaiting
   - hash:
       serializedVersion: 2
+      Hash: 49c6fee165e184f40d12ae41e35ca66f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CarMachine
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -1172,6 +1219,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FinishPanel
+  - hash:
+      serializedVersion: 2
       Hash: 59527166f60be76e5f83f2c45788300b
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityEngine.UI.Extensions
@@ -1182,6 +1235,72 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 109dd12b7d8dc4016f0271e8e6de2239
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_BezierShape
+  - hash:
+      serializedVersion: 2
+      Hash: 710b2e947270e720a6c7fb64544ec1a8
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_ColorPalette
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: 
+    className: pb_DummyScript
+  - hash:
+      serializedVersion: 2
+      Hash: 84cb74a3902eeab70df9ddf52e980196
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_ElementGraphics
+  - hash:
+      serializedVersion: 2
+      Hash: 806755981ca32012e76b513716e7b612
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: 
+    className: pb_Entity
+  - hash:
+      serializedVersion: 2
+      Hash: 17daa9600657a74d8be57eb2382b8d7c
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_LineRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_MeshRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: 313163b2c06309ee082a587a8fad2f08
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: 
+    className: pb_Object
+  - hash:
+      serializedVersion: 2
+      Hash: 895caf71fa916e8e4d6349edca6ab5d2
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_PolyShape
+  - hash:
+      serializedVersion: 2
+      Hash: 9c7c87712e298256d276eb96e02a57b1
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_PreferenceDictionary
+  - hash:
+      serializedVersion: 2
+      Hash: e7e74a8442e6ece26ccd2b4b614bf612
+    assemblyName: ProBuilderCore-Unity5.dll
+    namespaceName: ProBuilder2.Common
+    className: pb_Renderable
   - hash:
       serializedVersion: 2
       Hash: 56df1fa7cea034df9863fe5a24200a32
@@ -1562,6 +1681,12 @@ ScriptsOnlyBuild:
     className: TileSizeFitter
   - hash:
       serializedVersion: 2
+      Hash: 6cbe7b9474854cc7bdebd5f6ec35d19d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HighlightNearestFace
+  - hash:
+      serializedVersion: 2
       Hash: c0201dbecd85f700bcdff493a272631d
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1602,6 +1727,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c80d3238226b1d162e3ff2069e0972ed
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: ProBuilder2.Examples
+    className: CameraControls
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -1649,6 +1780,12 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
+    className: FinishController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
     className: RUIWaitingChild
   - hash:
       serializedVersion: 2
@@ -1662,6 +1799,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityEngine.UI.Extensions.ColorPicker
     className: ColorImage
+  - hash:
+      serializedVersion: 2
+      Hash: 489b61a085517aa14f31d684dcc99a61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: 0edce28ae49ada447a6366418f39f87a
@@ -1722,6 +1865,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityEngine.UI.Extensions
     className: ShineEffector
+  - hash:
+      serializedVersion: 2
+      Hash: 9209dfe5dea81f647a8fdc6ef083e67e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIDraw
   - hash:
       serializedVersion: 2
       Hash: 3679b7897be9d3f60e6f03cb7149b291
@@ -1868,6 +2017,12 @@ ScriptsOnlyBuild:
     className: CinemachineHardLockToTarget
   - hash:
       serializedVersion: 2
+      Hash: f3c99c9a1a51e0c40e641d69a88a896e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelManager
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -1896,6 +2051,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Toggle
+  - hash:
+      serializedVersion: 2
+      Hash: 5d58e2c6538e97bb37bbc552307c320c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: ProBuilder2.Examples
+    className: RuntimeEdit
   - hash:
       serializedVersion: 2
       Hash: e5ee43ede19111e51b78dbbe3af736a9
@@ -1956,169 +2117,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 489b61a085517aa14f31d684dcc99a61
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: f3c99c9a1a51e0c40e641d69a88a896e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: LevelManager
-  - hash:
-      serializedVersion: 2
-      Hash: 8f5f57a80ff89b29b00f5117b0fa3a6c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIStartPanel
-  - hash:
-      serializedVersion: 2
-      Hash: ddb27d58438a985587e79d7a6145ab87
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UILevelPanel
-  - hash:
-      serializedVersion: 2
-      Hash: 9209dfe5dea81f647a8fdc6ef083e67e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIDraw
-  - hash:
-      serializedVersion: 2
-      Hash: 109dd12b7d8dc4016f0271e8e6de2239
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_BezierShape
-  - hash:
-      serializedVersion: 2
-      Hash: 710b2e947270e720a6c7fb64544ec1a8
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_ColorPalette
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: 
-    className: pb_DummyScript
-  - hash:
-      serializedVersion: 2
-      Hash: 84cb74a3902eeab70df9ddf52e980196
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_ElementGraphics
-  - hash:
-      serializedVersion: 2
-      Hash: 806755981ca32012e76b513716e7b612
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: 
-    className: pb_Entity
-  - hash:
-      serializedVersion: 2
-      Hash: 17daa9600657a74d8be57eb2382b8d7c
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_LineRenderer
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_MeshRenderer
-  - hash:
-      serializedVersion: 2
-      Hash: 313163b2c06309ee082a587a8fad2f08
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: 
-    className: pb_Object
-  - hash:
-      serializedVersion: 2
-      Hash: 895caf71fa916e8e4d6349edca6ab5d2
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_PolyShape
-  - hash:
-      serializedVersion: 2
-      Hash: 9c7c87712e298256d276eb96e02a57b1
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_PreferenceDictionary
-  - hash:
-      serializedVersion: 2
-      Hash: e7e74a8442e6ece26ccd2b4b614bf612
-    assemblyName: ProBuilderCore-Unity5.dll
-    namespaceName: ProBuilder2.Common
-    className: pb_Renderable
-  - hash:
-      serializedVersion: 2
-      Hash: cbdaf6289eb255feedd0bee0a753faee
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ExtrudeRandomEdges
-  - hash:
-      serializedVersion: 2
-      Hash: c9d7f0d81fdae2d877bb1152cc49f7a4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: ProBuilder2.Examples
-    className: IcoBumpin
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: ProBuilder2.Examples
-    className: HueCube
-  - hash:
-      serializedVersion: 2
-      Hash: 6cbe7b9474854cc7bdebd5f6ec35d19d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HighlightNearestFace
-  - hash:
-      serializedVersion: 2
-      Hash: c80d3238226b1d162e3ff2069e0972ed
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: ProBuilder2.Examples
-    className: CameraControls
-  - hash:
-      serializedVersion: 2
-      Hash: 5d58e2c6538e97bb37bbc552307c320c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: ProBuilder2.Examples
-    className: RuntimeEdit
-  - hash:
-      serializedVersion: 2
-      Hash: 49c6fee165e184f40d12ae41e35ca66f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CarMachine
-  - hash:
-      serializedVersion: 2
-      Hash: db522f4ef93a452f8d74c442a71d8d10
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WheelControl
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FinishController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FinishPanel
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Working/01-RaksGame/01-Main Game/14-DrawCar/DrawCar/Version-0.0.3.apk
+  playerPath: D:/Working/01-RaksGame/01-Main Game/14-DrawCar/DrawCar/Version-0.0.6.apk
