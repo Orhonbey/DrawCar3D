@@ -60,7 +60,7 @@ public class CarMachine : MonoBehaviour
         }
         return true;
     }
-    public void Breka()
+    public void Break()
     {
         foreach (var item in wheelColliders)
         {

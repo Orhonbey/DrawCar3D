@@ -15,11 +15,13 @@ public class UIDraw : MonoBehaviour
     public Material material;
     [HideInInspector]
     public GameObject currentDrawcar;
+    private RectTransform rectTransform;
     #endregion
     #region //----> Unity Method
     private void Start()
     {
         touch = GetComponent<RaksTouch>();
+        rectTransform = transform as RectTransform;
     }
     private void Update()
     {
@@ -29,7 +31,7 @@ public class UIDraw : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    FirtLinePoint();
+                    FirstLinePoint();
                 }
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -54,7 +56,7 @@ public class UIDraw : MonoBehaviour
     }
     #endregion
     #region //----> My Method
-    private void FirtLinePoint()
+    private void FirstLinePoint()
     {
         Time.timeScale = 0.3f;
         touchPositions.Clear();
@@ -66,6 +68,11 @@ public class UIDraw : MonoBehaviour
     private void UpdateLine()
     {
         Vector2 touchPos = touch.currentPosition.InversePoint(linerenderer.transform);
+
+        var heightClamp = rectTransform.rect.height / 2f;
+        var widthClamp = RCanvas.canvasSize.x / 2f;
+        touchPos = new Vector2(Mathf.Clamp(touchPos.x, widthClamp * -1f, widthClamp), Mathf.Clamp(touchPos.y, heightClamp * -1f, heightClamp));
+
         float distance = Vector2.Distance(touchPositions[touchPositions.Count - 1], touchPos);
         if (distance > twoPointMaxDis)
         {
